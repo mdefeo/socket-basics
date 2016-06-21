@@ -1,4 +1,8 @@
-var socket 	=	io();
+var socket 		=	io(),
+	$form		= 	$('#message-form'),
+	$message 	=	$('input[name="message"]'),
+	$response	=	$('#response'),
+	$msg  		=	'';
 
 socket.on('connect', function() {
 	console.log('Connected to socket.io server.');
@@ -6,20 +10,14 @@ socket.on('connect', function() {
 
 socket.on('message', function(message) {
 	console.log('New message:');
-	console.log(message.text);
+	$response.append('<p>' + message.text + '</p>');
 });
 
 $(function() {
-	var $form		= 	$('#message-form'),
-		$message 	=	$('input[name="message"]'),
-		$response	=	$('#response'),
-		$msg  		=	'';
 	$form.on('submit', function(e) {
 		e.preventDefault();
-		$msg 		=	$message.val() + "<br>";
-		//$response.append($msg);
 		socket.emit('message', {
-			text: $msg
+			text: $message.val()
 		});
 		$message.val('');
 	});
