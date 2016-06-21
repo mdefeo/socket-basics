@@ -1,52 +1,16 @@
 <!doctype html>
 
-    <head>
-    	<meta charset="UTF-8">
-        <title>Chat</title>
-
-        <style>
-        	body {
-        		padding: 20px;
-        		font-family: Verdana, Arial, sans-serif;
-        	}
-        	form {
-        		border: 1px solid #80aaff;
-        		background: #e6eeff;
-        		padding: 10px;
-        		width: 300px;
-        		border-radius: 10px;
-        	}
-        	input[type="text"] {
-        		border: none;
-        		background: #fff;
-        		width: calc(100% - 4px);
-        		height: 25px;
-        		margin-bottom: 10px;
-        	}
-        	input[type="submit"] {
-        		border: 1px solid #ccddff;
-        		border-radius: 0;
-        		background: #fff;
-        	}
-        	#response {
-        		padding: 5px
-        	}
-			#response p {
-				font-size: 12px;
-				text-align: left;
-			}
-			#response p:nth-of-type(odd) {
-				text-align: right;
-			}
-        </style>
-
+	<head>
+		<meta charset="UTF-8">
+		<title>Chat</title>
+		<link rel="stylesheet" href="css/style.css" />
     </head>
     <body>
 
     	<form id="message-form" >
+	    	<div id="response"></div>
 			<input type="text" name="message" />
 			<input type="submit" name="submit" value="Submit" />
-	    	<div id="response"></div>
     	</form>
 
 

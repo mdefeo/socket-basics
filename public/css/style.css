@@ -1,0 +1,68 @@
+body {
+	padding: 20px;
+	font-family: Verdana, Arial, sans-serif;
+}
+form {
+	border: 1px solid #6bb2ed;
+	background: #e5eaf4;
+	margin: 10px;
+	width: 300px;
+	border-radius: 5px;
+	height: 400px;
+	overflow: hidden;
+	position: relative;
+	min-height:200px;
+}
+input[type="text"] {
+	position: absolute;
+	bottom: 0;
+	height: 43px;
+	width: calc(100% - 10px);
+	border: none;
+	padding: 0 5px;
+	margin: 0;
+	background: #fff;
+	border-bottom-left-radius: 2px;
+	border-bottom-right-radius: 2px;
+}
+input[type="submit"] {
+	display: none;
+}
+#response {
+	margin: 0 0 5px;
+	position: absolute;
+	top: 0;
+	height: 360px;
+	width: 100%;
+	overflow: auto;
+}
+p {
+	font-size: 12px;
+	text-align: left;
+	padding: 10px 10px 15px;
+	word-break: break-all;
+	background: #eee;
+	margin: 0;
+}
+p:nth-of-type(odd) {
+	background: #fff;
+	text-align: right;
+}
+p span.icon {
+	display: block;
+	background: #bdbdbd url(../images/blank-person.jpg) center center no-repeat;
+	background-size: auto 100%;
+	width: 34px;
+	height: 34px;
+	margin-right: 0 20px 0 0;
+	float: left;
+}
+p:nth-of-type(odd) span.icon {
+	float: right;
+	margin: 0 0 20px 20px;
+}
+
+p i {
+	font-size: 10px;
+	color: #00aaee
+}
