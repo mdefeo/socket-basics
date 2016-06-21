@@ -2,10 +2,18 @@
 
     <head>
     	<meta charset="UTF-8">
-        <title>io.pooP</title>
+        <title>Chat</title>
 
     </head>
     <body>
+
+    	<form id="message-form">
+			<label for="message">Message</label>
+			<input type="text" name="message" />
+			<input type="submit" name="submit" value="Submit" />
+    	</form>
+
+    	<div id="response"></div>
 
 	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 	    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.6/socket.io.min.js"></script>
