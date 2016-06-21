@@ -7,7 +7,7 @@ var PORT 		=	process.env.PORT || 3000,
 app.use(express.static(__dirname + '/public'));
 
 io.on('connection', function() {
-	console.log('User connected via');
+	console.log('User connected via magic.');
 });
 
 
