@@ -6,8 +6,15 @@ var PORT 		=	process.env.PORT || 3000,
 
 app.use(express.static(__dirname + '/public'));
 
-io.on('connection', function() {
-	console.log('User connected via magic.');
+io.on('connection', function(socket) {
+
+	socket.on('message', function(message) {
+		console.log('Message received: ' + message.text);
+		//sends to everyone but sender
+		socket.broadcast.emit('message', message);
+
+	});
+
 });
 
 
