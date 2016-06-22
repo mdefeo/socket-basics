@@ -9,8 +9,8 @@ socket.on('connect', function() {
 	console.log('Connected to socket.io server.');
 	socket.emit('joinRoom', {
 		name: getQueryVariable('name') || 'Anonymous',
-		room: room,
-		email: getQueryVariable('email')
+		room: room//,
+		//email: getQueryVariable('email')
 	});
 });
 

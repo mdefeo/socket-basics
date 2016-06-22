@@ -8,6 +8,14 @@ var PORT 		=	process.env.PORT || 3000,
 
 app.use(express.static(__dirname + '/public'));
 
+function systemMessage(socket,text) {
+	socket.emit('message', {
+		name: 'System',
+		text: text,
+		timestamp: moment().local().format('h:mm:ss a')
+	});	
+}
+
 //Sends current users to provided socket
 function sendCurrentUsers(socket) {
 	var info 	=	clientInfo[socket.id],
@@ -23,12 +31,7 @@ function sendCurrentUsers(socket) {
 			}
 		});
 
-		return socket.emit('message', {
-			name: 'System',
-			text: 'Current users: ' + users.join(', '),
-			timestamp: moment().local().format('h:mm:ss a')
-		});
-
+		return systemMessage(socket,'Current users: ' + users.join(', '));
 	}
 }
 io.on('connection', function(socket) {
@@ -54,6 +57,8 @@ io.on('connection', function(socket) {
 			text: req.name + ' has joined.',
 			timestamp: moment().local().format('h:mm:ss a')
 		});
+		systemMessage(socket,'Welcome to the chat application, ' + req.name + '!');
+
 	});
 
 	socket.on('message', function(message) {
@@ -68,13 +73,6 @@ io.on('connection', function(socket) {
 			io.to(clientInfo[socket.id].room).emit('message',message);
 		}
 	});
-
-	socket.emit('message', {
-		name: 'System',
-		text: 'Welcome to the chat application!',
-		timestamp: moment().local().format('h:mm:ss a')
-	});
-
 });
 
 http.listen(PORT, function() {
